@@ -1,3 +1,4 @@
+require('dotenv').config();
 const config = {
 	prod: 'production',
 	port: process.env.PORT,
