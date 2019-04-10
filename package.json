@@ -1,0 +1,26 @@
+{
+  "name": "stmanager",
+  "version": "1.0.0",
+  "description": "A nodejs server for students to manage study",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dattruonghuu/StManager.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dattruonghuu/StManager/issues"
+  },
+  "homepage": "https://github.com/dattruonghuu/StManager#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "nodemon": "^1.18.11"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0"
+  }
+}
