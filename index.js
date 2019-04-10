@@ -1,8 +1,6 @@
-const express = require('express');
-const app = express();
+const config = require('./server/config/config');
+const app = require('./server/server');
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
+app.listen(config.port, () => {
+	console.log('Listen to port ', config.port);
 });
-
-app.listen(3000);
