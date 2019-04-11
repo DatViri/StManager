@@ -4,7 +4,6 @@ const config = require('../config/config');
 const checkToken = expressJwt({secret: config.secrets.jwt});
 const User = require('../api/user/userModel');
 const error = require('../util/error');
-const httpStatus = require('http-status');
 
 exports.decodeToken = () => {
   return (req, res, next)=>{
