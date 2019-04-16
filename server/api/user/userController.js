@@ -51,8 +51,6 @@ exports.updateMe = (req, res, next) => {
   const user = req.user;
   const update = req.body;
 
-  console.log(req.body);
-  console.log(req.user);
     _.merge(user, update);
 
     user.save((err, saved) => {

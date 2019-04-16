@@ -8,8 +8,7 @@ router.route('/')
 .post(controller.post);
 
 router.route('/filter')
-.get(controller.getCourseFilter());
-
+.get(controller.getCourseFilter);
 
 router.route('/:id')
 .get(controller.getOne)
