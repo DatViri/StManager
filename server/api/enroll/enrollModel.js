@@ -3,20 +3,18 @@ const Schema = mongoose.Schema;
 
 const OrderSchema = new Schema({
   //id from course
-  course: {
+  courseId: {
     type: Schema.Types.ObjectId,
     ref: 'course',
     required: true,
   },
 
   //user array who enroll to course
-  userEnroll: [
-    {
+  userId: {
       type: Schema.Types.ObjectId,
       ref: 'user',
       required: true,
     },
-  ],
 
   time: {
     type: Date,

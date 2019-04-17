@@ -5,10 +5,8 @@ const responseHandler = require('../../util/responseHandler');
 
 exports.postCourseEnroll = (req, res, next) => {
   const newEnroll = {};
-  const userArray = [];
-  userArray.push(req.user._id);
-  newEnroll.course = req.course._id;
-  newEnroll.userEnroll = userArray;
+  newEnroll.courseId = req.course._id;
+  newEnroll.userId = req.user._id;
 
   Enroll.create(newEnroll)
   .then((enroll) => {

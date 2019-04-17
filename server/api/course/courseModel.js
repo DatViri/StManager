@@ -25,7 +25,7 @@ const courseSchema = new Schema({
 
   category: {
     type: String,
-    enum: ['mathematics', 'english', 'literature'],
+    enum: ['mathematics', 'english', 'literature', 'science'],
     required: true,
   },
 
