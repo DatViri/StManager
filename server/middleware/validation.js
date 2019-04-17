@@ -48,3 +48,19 @@ exports.validateUpdateUserParam = (req, res, next) => {
   }
   next();
 };
+
+exports.validateEnrollParam = (req, res, next) => {
+  req.checkParams('courseId', 'Course id should not be empty').notEmpty();
+
+  const errors = req.validationErrors();
+  if (errors) {
+    next(error.badRequestError(errors[0].msg));
+  } else {
+    const isValidCourseId = mongoose.Types.ObjectId.isValid(req.params.courseId);
+    if (!isValidCourseId) {
+      next(error.badRequestError('Invalid course id'));
+    }
+  }
+  next();
+
+};
