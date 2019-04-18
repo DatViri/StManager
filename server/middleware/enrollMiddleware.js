@@ -1,6 +1,7 @@
 const Course = require('../api/course/courseModel');
 const User = require('../api/user/userModel');
 const error = require('../util/error');
+const payment = require('../api/payment/paymentController')
 
 exports.verifyCourse = (req, res, next) => {
   const courseId = req.params.courseId;

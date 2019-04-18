@@ -4,6 +4,10 @@ const error = require('../../util/error');
 const responseHandler = require('../../util/responseHandler');
 const signToken = require('../../auth/auth').signToken;
 
+const config = require('../../config/config');
+const stripeSecretKey = config.secrets.stripeSecretKey;
+const stripe = require('stripe')(stripeSecretKey);
+
 exports.params = (req, res, next, id) => {
   User.findById(id)
   .select('-password')
@@ -79,6 +83,9 @@ exports.post = (req, res, next) => {
   const newUser = req.body;
   User.create(newUser)
   .then((user) => {
+    return createKey(user)
+  })
+  .then((user) => {
     return saveUser(user)
   })
   .then((user) => {
@@ -113,6 +120,19 @@ const saveUser = (user) => {
     }).catch(error => reject(error))
   })
 };
+
+const createKey = (user) => {
+  return new Promise((resolve, reject) => {
+    stripe.customers.create({
+      email: user.email,
+      description: user.username
+    }).then((customer) => {
+      user.stripeCustomerId = customer.id
+      resolve(user)
+    }).catch(error => reject(error))
+  })
+}
+
 
 exports.delete = (req, res, next) => {
   req.user.remove((err, removed) => {

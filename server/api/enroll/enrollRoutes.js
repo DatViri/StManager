@@ -4,9 +4,10 @@ const controller = require('./enrollController');
 const checkUser = [auth.decodeToken(), auth.getFreshUser()];
 const validator = require('../../middleware/validation');
 const enrollMiddleware = require('../../middleware/enrollMiddleware');
+const payment = require('../../api/payment/paymentController');
 
 router.route('/courses/:courseId')
-.post(checkUser, validator.validateEnrollParam, enrollMiddleware.verifyCourse, controller.postCourseEnroll)
+.post(checkUser, validator.validateEnrollParam, enrollMiddleware.verifyCourse,payment.post, controller.postCourseEnroll)
 .get(enrollMiddleware.verifyCourse, controller.getUsersOfCourse);
 
 router.route('/users/:userId')
@@ -14,6 +15,6 @@ router.route('/users/:userId')
 
 router.route('/:id')
 .get(controller.getOneEnroll)
-.delete(controller.delete);
+.delete(checkUser, validator.validateEnrollParam, controller.delete);
 
 module.exports = router;

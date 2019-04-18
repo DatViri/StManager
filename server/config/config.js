@@ -6,6 +6,7 @@ const config = {
 	expireTime: 24 * 60 * 60 * 10, //10 days in second
 	secrets: {
 		jwt: process.env.JWT || 'awesomeTeam',
+		stripeSecretKey: process.env.STRIPE
 	}
 };
 
