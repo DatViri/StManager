@@ -7,7 +7,7 @@ const enrollMiddleware = require('../../middleware/enrollMiddleware');
 const payment = require('../../api/payment/paymentController');
 
 router.route('/courses/:courseId')
-.post(checkUser, validator.validateEnrollParam, enrollMiddleware.verifyCourse,payment.post, controller.postCourseEnroll)
+.post(checkUser, validator.validateEnrollParam, enrollMiddleware.verifyCourse, payment.post, controller.postCourseEnroll)
 .get(enrollMiddleware.verifyCourse, controller.getUsersOfCourse);
 
 router.route('/users/:userId')

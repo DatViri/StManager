@@ -133,7 +133,6 @@ const createKey = (user) => {
   })
 }
 
-
 exports.delete = (req, res, next) => {
   req.user.remove((err, removed) => {
     if (err) {

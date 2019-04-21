@@ -11,7 +11,10 @@ const UserSchema = new Schema({
     lowercase: true,
     trim: true
   },
-  stripeCustomerId: String,
+
+  stripeCustomerId: {
+    type: String
+  },
 
   //we should hash password before saving it in Database
   //dont store the password as plain text
@@ -34,7 +37,6 @@ const UserSchema = new Schema({
 
   age: {
     type: Number,
-    unique: true,
     required: true
   },
 
