@@ -84,6 +84,7 @@ exports.post = (req, res, next) => {
   User.create(newUser)
   .then((user) => {
     return createKey(user)
+    console.log(user)
   })
   .then((user) => {
     return saveUser(user)
@@ -111,7 +112,7 @@ exports.post = (req, res, next) => {
       next(error.internalServerError());
     }
   })
-};
+}
 
 const saveUser = (user) => {
   return new Promise((resolve, reject) => {
