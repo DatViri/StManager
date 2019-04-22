@@ -6,7 +6,7 @@ const stripeSecretKey = config.secrets.stripeSecretKey;
 const stripe = require('stripe')(stripeSecretKey);
 
 exports.post = (req, res, next) => {
-  const amount = req.course.price;
+  const amount = req.course.price * 100;
   const user = req.user;
   const source = req.body.source;
 
