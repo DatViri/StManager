@@ -88,7 +88,3 @@ exports.delete = (req, res, next) => {
     }
   });
 };
-
-exports.test = (req,res,next) =>{
-  res.json("test");
-}
