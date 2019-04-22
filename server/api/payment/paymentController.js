@@ -2,6 +2,7 @@ const error = require('../../util/error');
 const responseHandler = require('../../util/responseHandler');
 const config = require('../../config/config');
 const stripeSecretKey = config.secrets.stripeSecretKey;
+
 const stripe = require('stripe')(stripeSecretKey);
 
 exports.post = (req, res, next) => {
@@ -25,7 +26,7 @@ exports.post = (req, res, next) => {
       }
     });
   }).catch(err => {
-    console.log(err)
+    console.log(err);
     next(error.internalServerError( `${err.message}`));
   });
 };
