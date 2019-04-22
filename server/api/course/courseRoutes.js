@@ -15,4 +15,7 @@ router.route('/:id')
 .put(controller.put)
 .delete(controller.delete);
 
+router.route('/test')
+    .get(controller.test)
+
 module.exports = router;
