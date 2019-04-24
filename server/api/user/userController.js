@@ -84,7 +84,6 @@ exports.post = (req, res, next) => {
   User.create(newUser)
   .then((user) => {
     return createKey(user)
-    console.log(user)
   })
   .then((user) => {
     return saveUser(user)
@@ -98,6 +97,7 @@ exports.post = (req, res, next) => {
         }));
   })
   .catch(err => {
+    console.log(err)
     let path = _.find(err.errors).message;
     if (path) {
       switch (path) {
