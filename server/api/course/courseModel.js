@@ -25,7 +25,7 @@ const courseSchema = new Schema({
 
   category: {
     type: String,
-    enum: ['business', 'art', 'history', 'health', 'history', 'languages', 'law', 'literature', 'science'],
+    enum: ['business', 'art', 'history', 'health', 'nature', 'languages', 'law', 'literature', 'science'],
     required: true,
   },
 
