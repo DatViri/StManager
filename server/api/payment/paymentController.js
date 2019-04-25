@@ -22,8 +22,6 @@ exports.post = (req, res, next) => {
         next(error.internalServerError());
       } else {
         delete saved.password;
-        res.json(responseHandler.successResponse(saved));
-        next();
       }
     });
   }).catch(err => {

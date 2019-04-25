@@ -11,9 +11,13 @@ exports.postCourseEnroll = (req, res, next) => {
   Enroll.create(newEnroll)
   .then((courseEnroll) => {
     res.json(responseHandler.successResponse(courseEnroll));
+    next();
   })
   .catch(err => {
-    console.log(err);
+    console.log(err.code);
+    if(err.code == 11000){ //unique key error
+      next(error.badRequestError("course has been already enrolled"));
+    }
     next(error.internalServerError());
   });
 };
