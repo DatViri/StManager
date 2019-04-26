@@ -41,7 +41,7 @@ exports.getCourseFilter = (req, res, next) => {
     filter = _.merge(filter, {price: price});
   }
 
-  Course.find(filter).sort({time: -1}).exec().then((courses) => {
+  Course.find(filter).exec().then((courses) => {
     res.json(responseHandler.successResponse(courses));
   }, (err) => {
     next(error.internalServerError());
