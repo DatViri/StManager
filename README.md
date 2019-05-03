@@ -72,7 +72,7 @@ Http status code should be checked for at least following error conditions:
 {
   "status": 200,
   "data": {
-   HERE IS THE RESPONSE PAYLOAD
+   "HERE IS THE RESPONSE PAYLOAD"
   }
 }
 ```
@@ -124,7 +124,7 @@ Request body:
 | username | string | |
 | password | string | |
 | email | string | Email |
-| phoneNumber | int | Must be 10 digits |
+| phoneNumber | string | Must be 10 digits |
 | age | string | <2 digits |
 | school | string | |
 
@@ -228,7 +228,7 @@ Sample response data:
   "username": "test1",
   "password": "HERE IS THE ENCODED PASSWORD",
   "email": "HERE IS THE EMAIL",
-  "phoneNumber": HERE IS THE NUMBEr,
+  "phoneNumber": "HERE IS THE NUMBER",
   "age": "HERE IS THE AGE",
   "school": "HERE IS THE SCHOOL",
   "__v": 0,
@@ -258,7 +258,7 @@ Sample response data:
   "_id": "HERE IS THE USERID",
   "username": "test1",
   "email": "HERE IS THE EMAIL",
-  "phoneNumber": HERE IS THE NUMBER,
+  "phoneNumber": "HERE IS THE NUMBER",
   "age": "HERE IS THE AGE",
   "school": "HERE IS THE SCHOOL",
   "__v": 0,
@@ -282,7 +282,7 @@ Request body:
 | username | string |  |
 | password | string |  |
 | email | string | Email |
-| phoneNumber | int | Must be 10 digits |
+| phoneNumber | string | Must be 10 digits |
 | age | string | < 2 digits |
 | school | string | |
 
@@ -305,8 +305,8 @@ Sample request:
   "password": "123456",
   "email": "datt@gmail.com",
   "phoneNumber": "123456789",
-  "age": "12"
-  "school" : "Metropolia"
+  "age": "12",
+  "school": "Metropolia"
 }
 ```
 Sample response data:
@@ -318,8 +318,8 @@ Sample response data:
   "password": "HERE IS THE ENCODED PASSWORD",
   "email": "datt@gmail.com",
   "phoneNumber": "123456789",
-  "age": "12"
-  "school" : "Metropolia"
+  "age": "12",
+  "school": "Metropolia"
 }
 ```
 
@@ -497,7 +497,7 @@ Sample response data:
 ```
 
 ### <a name="put-items-id"></a> PUT /api/items/:id
-Edit item based on id
+Edit course based on id
 
 Request body:
 
@@ -565,7 +565,6 @@ Response payload data
 Sample response data:
 
 ```json
-{
    {
         "_id": "5cb623c3be29e1425dfe3c47",
         "courseName": "Swift for newbie",
@@ -602,7 +601,7 @@ Sample header:
 
 ```json
 {
-  "authorization":"HERE IS THE TOKEN"
+  "authorization":"HERE IS THE TOKEN",
   "source" : "HERE IS THE sourceId"
 }
 ```
@@ -612,7 +611,7 @@ Sample response payload data:
 ```json
 {
  "_id": "5cc24236a299cf00047c0756",
-"courseId" : "5cc0684c37e3790004aac1b7".
+"courseId" : "5cc0684c37e3790004aac1b7",
 "userId" : "5cc22f2ba299cf00047c0745",
 "time" : "2019-04-25T23:26:46.465+00:00",
 "__v" : 0
@@ -636,7 +635,7 @@ Sample response payload data:
 ```json
 {
  "_id": "5cc24236a299cf00047c0756",
-"courseId" : "5cc0684c37e3790004aac1b7".
+"courseId" : "5cc0684c37e3790004aac1b7",
 "userId" : "5cc22f2ba299cf00047c0745",
 "time" : "2019-04-25T23:26:46.465+00:00",
 "__v" : 0
@@ -659,7 +658,7 @@ Sample response payload data:
 ```json
 {
  "_id": "5cc24236a299cf00047c0756",
-"courseId" : "5cc0684c37e3790004aac1b7".
+"courseId" : "5cc0684c37e3790004aac1b7",
 "userId" : "5cc22f2ba299cf00047c0745",
 "time" : "2019-04-25T23:26:46.465+00:00",
 "__v" : 0
