@@ -1,11 +1,9 @@
 const Course = require('../api/course/courseModel');
 const User = require('../api/user/userModel');
 const error = require('../util/error');
-const payment = require('../api/payment/paymentController')
 
 exports.verifyCourse = (req, res, next) => {
   const courseId = req.params.courseId;
-  console.log(courseId);
   Course.findById(courseId).exec().then((course) => {
       req.course = course;
       next();
@@ -17,7 +15,6 @@ exports.verifyCourse = (req, res, next) => {
 
 exports.verifyUser = (req, res, next) => {
   const userId = req.params.userId;
-  console.log(userId);
   User.findById(userId).exec().then((user) => {
     req.user = user;
     next();

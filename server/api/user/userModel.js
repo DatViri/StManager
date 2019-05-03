@@ -30,7 +30,7 @@ const UserSchema = new Schema({
   },
 
   phoneNumber: {
-    type: Number,
+    type: String,
     unique: true,
     required: true
   },
